@@ -1,12 +1,11 @@
-import Create from "./components/Create"
+import Create from './components/Create';
 
 function App() {
-
   return (
-    <div className="App">
+    <div className="w-screen h-screen">
       <Create />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
