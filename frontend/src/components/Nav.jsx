@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({ title }) => {
   return (
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link to="/">
-            <a className="btn btn-ghost text-xl">daisyUI</a>
+            <a className="btn btn-ghost text-xl">{title}</a>
           </Link>
         </div>
         <div className="flex-none">
