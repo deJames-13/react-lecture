@@ -1,9 +1,11 @@
-import Create from './components/Create';
+import { Outlet } from 'react-router-dom';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="w-screen h-screen">
-      <Create />
+      <Nav />
+      <Outlet />
     </div>
   );
 }
