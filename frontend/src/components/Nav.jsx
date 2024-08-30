@@ -5,9 +5,7 @@ const Nav = ({ title }) => {
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <Link to="/">
-            <a className="btn btn-ghost text-xl">{title}</a>
-          </Link>
+          <Link to="/">{title}</Link>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
