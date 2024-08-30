@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Create = () => {
   const [values, setValues] = useState({
     title: '',
     content: '',
     user: '',
   });
+
+  const nav = useNavigate();
 
   const handleChange = (e) => {
     return setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -17,6 +20,7 @@ const Create = () => {
       .post(import.meta.env.VITE_API_URL + '/posts', values)
       .then((res) => {
         console.log(res.data);
+        nav('/');
       })
       .catch((e) => {
         console.error(e.data || e.error || e.message);
