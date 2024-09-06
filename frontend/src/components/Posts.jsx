@@ -36,9 +36,30 @@ const Posts = () => {
   return (
     <>
       <div className="container max-w-xl border rounded-lg h-full mx-auto my-24 p-8">
+      <div className="flex space-x-2 items-center justify-between">
         <h1 className="text-3xl font-extrabold text-primary">Posts</h1>
+        <button
+          onClick={() => navigate('/create')}
+          className="bg-blue-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
+        >
+          Create Post
+        </button>
+      </div>
         <div className="divider"></div>
         <div className="p-4 gap-2">
+          {
+            posts.length === 0 && (
+              <div className="flex space-x-2 items-center justify-center">
+                <p className="text-lg font-bold">No posts found</p>
+                <button
+                  onClick={() => navigate('/create')}
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+                >
+                  Create Post
+                </button>
+              </div>
+            )
+          }
           {posts.map((post) => (
             <div
               key={post._id}
