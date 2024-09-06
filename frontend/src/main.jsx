@@ -5,6 +5,8 @@ import App from './App.jsx';
 import Create from './components/Create.jsx';
 import Posts from './components/Posts.jsx';
 import Update from './components/Update.jsx';
+import Login from './components/Login.jsx'; 
+import Signup from './components/SIgnup.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: '/create',
         element: <Create />,
+      },
+      {
+        path: '/login', // Existing route
+        element: <Login />,
+      },
+      {
+        path: '/signup', // Add this route
+        element: <Signup />,
       },
       {
         path: '/update/:slug',
