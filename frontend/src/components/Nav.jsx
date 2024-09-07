@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useUser } from '../contexts/UserContext';
-
+import { Link } from 'react-router-dom';
+import useUser from '../hooks/useUser';
 const Nav = ({ title }) => {
   const { user, logout } = useUser();
 
@@ -11,7 +10,7 @@ const Nav = ({ title }) => {
         <Link to="/">{title}</Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="px-1 menu menu-horizontal">
           {!user ? (
             <>
               <li>

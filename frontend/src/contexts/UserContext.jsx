@@ -1,15 +1,22 @@
-import { createContext, useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { createContext, useState } from 'react';
 
-const UserContext = createContext();
+export const UserContext = createContext({
+  user: null,
+  login: () => {},
+  logout: () => {},
+});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/users/login`, { email, password });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/users/login`,
+        { email, password }
+      );
       const { token } = response.data;
       localStorage.setItem('token', token);
       setUser({ email }); // You might want to store more user info here
@@ -33,8 +40,4 @@ export const UserProvider = ({ children }) => {
 
 UserProvider.propTypes = {
   children: PropTypes.node.isRequired,
-};
-
-export const useUser = () => {
-  return useContext(UserContext);
 };

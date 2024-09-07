@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useUser } from '../contexts/UserContext';
+import { useNavigate } from 'react-router-dom';
+import useUser from '../hooks/useUser';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -24,7 +24,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container max-w-lg mx-auto my-24 border rounded-lg p-4">
+    <div className="container max-w-lg p-4 mx-auto my-24 border rounded-lg">
       <h1 className="text-3xl font-extrabold">Login</h1>
       {error && <p className="text-red-500">{error}</p>}
       <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
@@ -35,7 +35,7 @@ const Login = () => {
             id="email"
             name="email"
             onChange={handleChange}
-            className="input input-bordered w-full"
+            className="w-full input input-bordered"
           />
         </div>
         <div>
@@ -45,10 +45,12 @@ const Login = () => {
             id="password"
             name="password"
             onChange={handleChange}
-            className="input input-bordered w-full"
+            className="w-full input input-bordered"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
       </form>
     </div>
   );
