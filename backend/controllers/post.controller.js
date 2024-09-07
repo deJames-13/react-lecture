@@ -46,11 +46,11 @@ export const updatePost = async (req, res) => {
       { title, content, user, slug: newSlug },
       { new: true }
     );
-    
+
     if (!updatedPost) {
       return res.status(404).json({ error: 'Post not found' });
     }
-    
+
     res.status(200).json({
       message: 'Post updated successfully',
       post: updatedPost,
@@ -67,11 +67,11 @@ export const getPost = async (req, res) => {
   try {
     const { slug } = req.params;
     const post = await postModel.findOne({ slug });
-    
+
     if (!post) {
       return res.status(404).json({ error: 'Post not found' });
     }
-    
+
     res.status(200).json({
       message: 'Post fetched successfully',
       post,
@@ -88,11 +88,11 @@ export const deletePost = async (req, res) => {
   try {
     const { slug } = req.params;
     const deletedPost = await postModel.findOneAndDelete({ slug });
-    
+
     if (!deletedPost) {
       return res.status(404).json({ error: 'Post not found' });
     }
-    
+
     res.status(200).json({
       message: 'Post deleted successfully',
       post: deletedPost,
