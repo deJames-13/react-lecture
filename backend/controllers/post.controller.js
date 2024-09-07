@@ -35,3 +35,18 @@ export const getPosts = async (req, res) => {
     });
   }
 };
+
+export const getPost = async (req, res) => {
+  try {
+    const { slug } = req.params;
+    const post = await postModel.findOne({ slug }).exec();
+    res.status(200).json({
+      post,
+    });
+  } catch (e) {
+    res.status(400).json({
+      error: 'Error fetching post',
+      stack: e.stack,
+    });
+  }
+};

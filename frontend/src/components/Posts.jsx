@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Post from './PostCard';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -26,16 +27,7 @@ const Posts = () => {
         <h1 className="text-3xl font-extrabold text-primary">Posts</h1>
         <div className="divider"></div>
         <div className="p-4 gap-2">
-          {posts.map((post) => (
-            <div
-              key={post._id}
-              className="shadow-xl rounded-lg border-b p-4 hover:scale-105 hover:z-10 hover:border-primary hover:border-b-2 transition-all ease-in-out"
-            >
-              <h2 className="text-lg font-bold">{post.title}</h2>
-              <p>{post.content}</p>
-              <p className="text-sm text-gray-500">{post.user}</p>
-            </div>
-          ))}
+          <Post posts={posts} />
         </div>
       </div>
     </>
